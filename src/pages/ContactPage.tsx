@@ -69,11 +69,17 @@ const ContactPage = () => {
     <div className="section-padding min-h-screen bg-gradient-to-br from-white via-slate-50 to-cyan-50 relative" aria-label="Contact">
       {/* Floating WhatsApp Button */}
       <button
+      
         onClick={handleWhatsAppClick}
         className="fixed bottom-6 right-6 bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-2xl shadow-large hover:shadow-xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 z-50 group"
         title="Chat on WhatsApp"
       >
-        <MessageCircle className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
+        <img
+          src="https://i.postimg.cc/xdg2nwxS/whatsapp.png"
+          alt="WhatsApp"
+          className="h-6 w-6 group-hover:scale-110 transition-transform duration-300"
+        />
+
         <div className="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
       </button>
 
