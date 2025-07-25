@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Users, Award, Clock } from 'lucide-react';
+import { servicesAPI, blogAPI, galleryAPI, inquiriesAPI } from '../lib/api';
 
 const LandingPage = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [serviceCount, setServiceCount] = useState<number | null>(null);
+  const [blogCount, setBlogCount] = useState<number | null>(null);
+  const [galleryCount, setGalleryCount] = useState<number | null>(null);
+  const [inquiryCount, setInquiryCount] = useState<number | null>(null);
 
   const testimonials = [
     {
@@ -25,6 +30,30 @@ const LandingPage = () => {
       rating: 5
     }
   ];
+
+  useEffect(() => {
+    async function fetchCounts() {
+      try {
+        const [services, blogs, gallery, inquiries] = await Promise.all([
+          servicesAPI.getAll(),
+          blogAPI.getAll(),
+          galleryAPI.getAll(),
+          inquiriesAPI.getAll()
+        ]);
+        setServiceCount(services.length);
+        setBlogCount(blogs.length);
+        setGalleryCount(gallery.length);
+        setInquiryCount(inquiries.length);
+      } catch (err) {
+        // Optionally handle error
+        setServiceCount(null);
+        setBlogCount(null);
+        setGalleryCount(null);
+        setInquiryCount(null);
+      }
+    }
+    fetchCounts();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -111,7 +140,7 @@ const LandingPage = () => {
               <p className="body-md text-gray-700 mb-8">
                 Because at Spaark Elite Events, we don't just manage events — we create experiences that shine.
               </p>
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
                 <div className="text-center modern-card p-6 hover-lift">
                   <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-medium">
                     <Users className="h-8 w-8" />
@@ -126,6 +155,40 @@ const LandingPage = () => {
                   <h4 className="text-2xl font-bold text-cyan-700 mb-2">50+</h4>
                   <p className="text-gray-600 font-medium">Awards Won</p>
                 </div>
+                <div className="text-center modern-card p-6 hover-lift">
+                  <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-medium">
+                    <Users className="h-8 w-8" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-cyan-700 mb-2">{serviceCount !== null ? serviceCount : '...'}</h4>
+                  <p className="text-gray-600 font-medium">Total Services</p>
+                </div>
+                <div className="text-center modern-card p-6 hover-lift">
+                  <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-medium">
+                    <Award className="h-8 w-8" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-cyan-700 mb-2">{inquiryCount !== null ? inquiryCount : '...'}</h4>
+                  <p className="text-gray-600 font-medium">Total Inquiries</p>
+                </div>
+                <div className="text-center modern-card p-6 hover-lift">
+                  <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-medium">
+                    <Award className="h-8 w-8" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-cyan-700 mb-2">{blogCount !== null ? blogCount : '...'}</h4>
+                  <p className="text-gray-600 font-medium">Blog Posts</p>
+                </div>
+                <div className="text-center modern-card p-6 hover-lift">
+                  <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-medium">
+                    <Award className="h-8 w-8" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-cyan-700 mb-2">{galleryCount !== null ? galleryCount : '...'}</h4>
+                  <p className="text-gray-600 font-medium">Gallery Items</p>
+                </div>
+                {(serviceCount === 0 && inquiryCount === 0 && blogCount === 0 && galleryCount === 0) && (
+                  <div className="col-span-2 md:col-span-3 flex flex-col items-center justify-center p-8">
+                    <p className="text-cyan-700 text-lg font-semibold mb-2">No analytics data available yet!</p>
+                    <p className="text-gray-500">Add some services, inquiries, blog posts, or gallery items to see your stats here.</p>
+                  </div>
+                )}
               </div>
             </div>
             <div className="space-y-6 animate-fade-in-up animate-delay-400">

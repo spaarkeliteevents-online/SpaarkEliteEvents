@@ -32,28 +32,29 @@ const ContactPage = () => {
     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-    // Debug: Log env variables if any are missing
     if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      console.error('Missing EmailJS environment variables:', {
-        SERVICE_ID,
-        TEMPLATE_ID,
-        PUBLIC_KEY
-      });
       setError('Email service is not configured. Please try again later.');
       setIsSubmitting(false);
       return;
     }
     try {
+      // Send email
       await emailjs.sendForm(
         SERVICE_ID,
         TEMPLATE_ID,
         formRef.current,
         PUBLIC_KEY
       );
+      // Save inquiry to database
+      await inquiriesAPI.create({
+        name: formData.user_name,
+        email: formData.user_email,
+        message: formData.message,
+        status: 'pending'
+      });
       setSubmitted(true);
       setFormData({ user_name: '', user_email: '', message: '' });
     } catch (err) {
-      console.error('EmailJS error:', err); // Debug log
       setError('Failed to send message. Please try again later.');
     } finally {
       setIsSubmitting(false);

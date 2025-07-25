@@ -6,7 +6,7 @@ import BlogManager from './admin/BlogManager';
 import FAQManager from './admin/FAQManager';
 import ContactInquiries from './admin/ContactInquiries';
 import EventsManager from './admin/EventsManager';
-import { servicesAPI, Service } from '../lib/api';
+import { servicesAPI, blogAPI, galleryAPI, inquiriesAPI } from '../lib/api';
 import { 
   PlusCircle, 
   Edit3, 
@@ -86,48 +86,50 @@ const AdminDashboard = () => {
     checkAuth();
   }, [navigate]);
 
-  const [services, setServices] = useState<Service[]>([]);
+  const [services, setServices] = useState<any[]>([]); // Changed to any[] to match API response
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]); // Changed to BlogPost[] to match API response
+  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]); // Changed to GalleryItem[] to match API response
+  const [inquiries, setInquiries] = useState<Inquiry[]>([]); // Changed to Inquiry[] to match API response
 
-  const [inquiries, setInquiries] = useState<Inquiry[]>([
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      email: "sarah@example.com",
-      message: "I'm interested in planning my wedding for next summer. Could we schedule a consultation?",
-      date: "2025-01-15",
-      status: "pending"
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      email: "michael@company.com",
-      message: "We need help organizing our annual corporate gala. Please contact us.",
-      date: "2025-01-14",
-      status: "contacted"
-    }
-  ]);
+  const [serviceCount, setServiceCount] = useState<number | null>(null);
+  const [blogCount, setBlogCount] = useState<number | null>(null);
+  const [galleryCount, setGalleryCount] = useState<number | null>(null);
+  const [inquiryCount, setInquiryCount] = useState<number | null>(null);
 
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([
-    {
-      id: 1,
-      title: "10 Essential Tips for Planning the Perfect Wedding",
-      summary: "From choosing the right venue to managing your budget, discover the key elements that make a wedding truly spectacular.",
-      content: "Full blog content would go here...",
-      author: "Sarah Johnson",
-      date: "March 15, 2025",
-      image: "https://images.pexels.com/photos/1464207/pexels-photo-1464207.jpeg",
-      category: "Wedding Planning"
+  useEffect(() => {
+    async function fetchCounts() {
+      try {
+        const [services, blogs, gallery, inquiries] = await Promise.all([
+          servicesAPI.getAll(),
+          blogAPI.getAll(),
+          galleryAPI.getAll(),
+          inquiriesAPI.getAll()
+        ]);
+        setServiceCount(services.length);
+        setBlogCount(blogs.length);
+        setGalleryCount(gallery.length);
+        setInquiryCount(inquiries.length);
+      } catch (err) {
+        setServiceCount(null);
+        setBlogCount(null);
+        setGalleryCount(null);
+        setInquiryCount(null);
+      }
     }
-  ]);
+    fetchCounts();
+  }, []);
 
-  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([
-    {
-      id: 1,
-      src: "https://images.pexels.com/photos/1464207/pexels-photo-1464207.jpeg",
-      title: "Elegant Wedding Ceremony",
-      category: "Wedding"
+  useEffect(() => {
+    async function fetchInquiries() {
+      try {
+        const data = await inquiriesAPI.getAll();
+        setInquiries(data || []);
+      } catch (error) {
+        // Optionally handle error
+      }
     }
-  ]);
+    fetchInquiries();
+  }, []);
 
   const [formData, setFormData] = useState<any>({});
 
@@ -193,7 +195,7 @@ const AdminDashboard = () => {
         if (editingId) {
           await servicesAPI.update(String(editingId), formData);
         } else {
-          await servicesAPI.create(formData as Omit<Service, 'id' | 'created_at'>);
+          await servicesAPI.create(formData as Omit<any, 'id' | 'created_at'>); // Changed to any
         }
         await fetchServices();
       } else if (activeTab === 'blog') {
@@ -291,37 +293,34 @@ const AdminDashboard = () => {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-500 text-sm">Total Services</p>
-              <p className="text-3xl font-bold text-cyan-700">{services.length}</p>
+              <p className="text-3xl font-bold text-cyan-700">{serviceCount !== null ? serviceCount : '...'}</p>
             </div>
             <Settings className="h-8 w-8 text-cyan-500" />
           </div>
         </div>
-
         <div className="modern-card p-6 hover-lift animate-fade-in-up animate-delay-100">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-500 text-sm">Total Inquiries</p>
-              <p className="text-3xl font-bold text-cyan-700">{inquiries.length}</p>
+              <p className="text-3xl font-bold text-cyan-700">{inquiryCount !== null ? inquiryCount : '...'}</p>
             </div>
             <MessageSquare className="h-8 w-8 text-green-500" />
           </div>
         </div>
-
         <div className="modern-card p-6 hover-lift animate-fade-in-up animate-delay-200">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-500 text-sm">Blog Posts</p>
-              <p className="text-3xl font-bold text-cyan-700">{blogPosts.length}</p>
+              <p className="text-3xl font-bold text-cyan-700">{blogCount !== null ? blogCount : '...'}</p>
             </div>
             <FileText className="h-8 w-8 text-purple-500" />
           </div>
         </div>
-
         <div className="modern-card p-6 hover-lift animate-fade-in-up animate-delay-300">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-500 text-sm">Gallery Items</p>
-              <p className="text-3xl font-bold text-cyan-700">{galleryItems.length}</p>
+              <p className="text-3xl font-bold text-cyan-700">{galleryCount !== null ? galleryCount : '...'}</p>
             </div>
             <Image className="h-8 w-8 text-yellow-400" />
           </div>
