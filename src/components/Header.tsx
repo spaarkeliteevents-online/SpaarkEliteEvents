@@ -56,47 +56,47 @@ const Header = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`group relative flex items-center space-x-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-200 ${
+                className={`group relative flex items-center space-x-2 px-5 py-3 rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-200 ${
                   isActive(item.path) 
                     ? 'text-cyan-600 bg-cyan-50' 
                     : 'text-gray-700 hover:text-cyan-600'
                 }`}
               >
-                <item.icon className={`h-4 w-4 transition-colors duration-300 ${
+                <item.icon className={`h-6 w-6 transition-colors duration-300 ${
                   isActive(item.path) ? 'text-cyan-600' : 'text-gray-500 group-hover:text-cyan-600'
                 }`} />
-                <span className="text-sm">{item.label}</span>
+                <span className="text-lg">{item.label}</span>
                 {isActive(item.path) && (
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-cyan-600 rounded-full"></div>
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-cyan-600 rounded-full"></div>
                 )}
               </Link>
             ))}
           </nav>
 
           {/* Tablet Navigation */}
-          <nav className="hidden md:flex lg:hidden items-center space-x-1">
+          <nav className="hidden md:flex lg:hidden items-center space-x-2">
             {navItemsWithIcons.slice(0, 5).map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
-                className={`group relative flex items-center space-x-1 px-3 py-2 rounded-lg font-medium transition-all duration-300 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-200 ${
+                className={`group relative flex items-center space-x-2 px-4 py-2 rounded-xl font-semibold text-base transition-all duration-300 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-200 ${
                   isActive(item.path) 
                     ? 'text-cyan-600 bg-cyan-50' 
                     : 'text-gray-700 hover:text-cyan-600'
                 }`}
               >
-                <item.icon className={`h-4 w-4 transition-colors duration-300 ${
+                <item.icon className={`h-5 w-5 transition-colors duration-300 ${
                   isActive(item.path) ? 'text-cyan-600' : 'text-gray-500 group-hover:text-cyan-600'
                 }`} />
-                <span className="text-xs">{item.label}</span>
+                <span className="text-base">{item.label}</span>
               </Link>
             ))}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-gray-700 hover:text-cyan-600 hover:bg-cyan-50 rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+              className="p-3 text-gray-700 hover:text-cyan-600 hover:bg-cyan-50 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-200"
               aria-label="More options"
             >
-              <Menu className="h-4 w-4" />
+              <Menu className="h-5 w-5" />
             </button>
           </nav>
 
@@ -120,25 +120,25 @@ const Header = () => {
             ? 'max-h-96 opacity-100 pb-6' 
             : 'max-h-0 opacity-0 overflow-hidden'
         }`}>
-          <nav className="space-y-1 pt-4 border-t border-gray-100">
+          <nav className="space-y-2 pt-4 border-t border-gray-100">
             {navItemsWithIcons.map((item, index) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`group flex items-center space-x-3 px-4 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-200 animate-fade-in-up ${
+                className={`group flex items-center space-x-4 px-5 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-200 animate-fade-in-up ${
                   isActive(item.path) 
                     ? 'text-cyan-600 bg-cyan-50 border-l-4 border-cyan-600' 
                     : 'text-gray-700 hover:text-cyan-600'
                 }`}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <item.icon className={`h-5 w-5 transition-colors duration-300 ${
+                <item.icon className={`h-6 w-6 transition-colors duration-300 ${
                   isActive(item.path) ? 'text-cyan-600' : 'text-gray-500 group-hover:text-cyan-600'
                 }`} />
-                {item.label}
+                <span className="text-lg">{item.label}</span>
                 {isActive(item.path) && (
-                  <div className="ml-auto w-2 h-2 bg-cyan-600 rounded-full animate-pulse"></div>
+                  <div className="ml-auto w-2.5 h-2.5 bg-cyan-600 rounded-full animate-pulse"></div>
                 )}
               </Link>
             ))}
