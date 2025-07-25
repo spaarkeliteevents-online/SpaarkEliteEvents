@@ -212,9 +212,10 @@ const GalleryManager: React.FC = () => {
                   value={formData.image_url || ''}
                   onChange={handleInputChange}
                   className="modern-input"
-                  placeholder="https://example.com/image.jpg"
+                  placeholder="https://example.com/image.jpg, .jpeg, .png, .webp, .gif"
                   required
                 />
+                <p className="text-xs text-gray-500 mt-1">Supported formats: .jpg, .jpeg, .png, .webp, .gif</p>
               </div>
 
               <div>

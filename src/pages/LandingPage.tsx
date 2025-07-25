@@ -140,15 +140,15 @@ const LandingPage = () => {
                 <div className="h-56 rounded-xl flex items-center justify-center bg-gradient-to-br from-slate-50 to-cyan-50 border border-cyan-100">
                   <div className="flex w-full h-full gap-4 justify-center items-center">
                     <div className="flex flex-col items-center w-1/3 h-full">
-                      <img src="/founder1.jpg" alt="Founder 1" className="h-4/5 w-full object-cover rounded-xl shadow-soft hover-scale" />
+                      <img src="https://i.postimg.cc/fkgbR4dF/founder1.jpg" alt="Founder 1" className="h-4/5 w-full object-cover rounded-xl shadow-soft hover-scale" />
                       <span className="mt-2 text-xs font-semibold text-gray-700 text-center">Thakur Anmol Singh</span>
                     </div>
                     <div className="flex flex-col items-center w-1/3 h-full">
-                      <img src="/founder2.jpg" alt="Founder 2" className="h-4/5 w-full object-cover rounded-xl shadow-soft hover-scale" />
+                      <img src="https://i.postimg.cc/sG1D4mkw/founder2.jpg" alt="Founder 2" className="h-4/5 w-full object-cover rounded-xl shadow-soft hover-scale" />
                       <span className="mt-2 text-xs font-semibold text-gray-700 text-center">Kalavagunta Naga Lalitha Saraswathi</span>
                     </div>
                     <div className="flex flex-col items-center w-1/3 h-full">
-                      <img src="/founder3.jpg" alt="Founder 3" className="h-4/5 w-full object-cover rounded-xl shadow-soft hover-scale" />
+                      <img src="https://i.postimg.cc/rzpmTyDx/founder3.jpg" alt="Founder 3" className="h-4/5 w-full object-cover rounded-xl shadow-soft hover-scale" />
                       <span className="mt-2 text-xs font-semibold text-gray-700 text-center">Thallapragada Annapurna</span>
                     </div>
                   </div>

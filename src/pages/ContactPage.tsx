@@ -32,6 +32,17 @@ const ContactPage = () => {
     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    // Debug: Log env variables if any are missing
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      console.error('Missing EmailJS environment variables:', {
+        SERVICE_ID,
+        TEMPLATE_ID,
+        PUBLIC_KEY
+      });
+      setError('Email service is not configured. Please try again later.');
+      setIsSubmitting(false);
+      return;
+    }
     try {
       await emailjs.sendForm(
         SERVICE_ID,
@@ -99,12 +110,9 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="text-cyan-700 font-semibold text-xl mb-3">Email</h3>
-                  <a
-                    href="mailto:spaarkeliteevents@gmail.com"
-                    className="text-cyan-600 hover:text-cyan-700 transition-colors font-medium text-lg hover:underline"
-                  >
+                  <span className="text-cyan-600 font-medium text-lg">
                     spaarkeliteevents@gmail.com
-                  </a>
+                  </span>
                 </div>
               </div>
 
