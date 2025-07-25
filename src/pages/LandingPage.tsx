@@ -7,19 +7,19 @@ const LandingPage = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "Kesa Madhan",
       event: "Dream Wedding",
       text: "Spaark Elite Events made our wedding absolutely perfect. Every detail was flawless, and they brought our vision to life beyond our wildest dreams.",
       rating: 5
     },
     {
-      name: "Michael Chen",
+      name: "Kakunuri Nagarjuna",
       event: "Corporate Gala",
       text: "Professional, creative, and incredibly organized. Our annual gala was a huge success thanks to their exceptional planning and execution.",
       rating: 5
     },
     {
-      name: "Emma Rodriguez",
+      name: "Thota Karthik",
       event: "Anniversary Celebration",
       text: "They turned our 25th anniversary into a magical evening. The attention to detail and personal touch made it truly unforgettable.",
       rating: 5
@@ -167,7 +167,7 @@ const LandingPage = () => {
             <div className="lg:w-1/3 w-full flex-shrink-0 flex items-start justify-center lg:justify-start relative">
               <div className="sticky top-32 w-full flex flex-col items-center animate-fade-in-up">
                 <div className="w-full max-w-sm h-80 lg:h-96 bg-gradient-to-br from-slate-100 to-cyan-100 rounded-2xl shadow-large flex items-center justify-center mb-6 overflow-hidden hover-lift">
-                  <img src="/photo7.jpeg" alt="Spaark Elite Events" className="w-full h-full object-cover hover-scale" />
+                  <img src="https://i.postimg.cc/QCywHs5R/clients.avif" alt="Spaark Elite Events Clients" className="w-full h-full object-cover hover-scale" />
                 </div>
               </div>
             </div>
