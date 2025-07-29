@@ -268,7 +268,7 @@ const LandingPage = () => {
                       <div className="relative w-full aspect-square max-w-32 sm:max-w-48 mx-auto">
                         <img src="https://i.postimg.cc/rzpmTyDx/founder3.jpg" alt="Founder 3" className="w-full h-full object-cover rounded-xl shadow-soft hover-scale" />
                       </div>
-                      <span className="mt-3 text-xs sm:text-sm font-semibold text-gray-700 text-center leading-tight">Thallapragada Annapurna</span>
+                      <span className="mt-3 text-xs sm:text-sm font-semibold text-gray-700 text-center leading-tight">Tallapragada Annapurna</span>
                     </div>
                   </div>
                 </div>
