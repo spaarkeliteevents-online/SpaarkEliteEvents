@@ -169,11 +169,7 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleEdit = (item: any, type: string) => {
-    setIsEditing(true);
-    setEditingId(item.id);
-    setFormData(item);
-  };
+
 
   const fetchServices = async () => {
     try {
@@ -243,6 +239,38 @@ const AdminDashboard = () => {
       }
     }
   };
+  const handleEdit = (
+  item: any, // Service | BlogPost | GalleryItem
+  type: 'services' | 'blog' | 'gallery'
+) => {
+  setIsEditing(true);
+  setEditingId(item.id);
+
+  if (type === 'services') {
+    setFormData({
+      name: item.name || '',
+      description: item.description || '',
+      icon: item.icon || 'Heart',
+      features: item.features || [],
+    });
+  } else if (type === 'blog') {
+    setFormData({
+      title: item.title || '',
+      summary: item.summary || '',
+      content: item.content || '',
+      author: item.author || '',
+      date: item.date || '',
+      image: item.image || '',
+      category: item.category || ''
+    });
+  } else if (type === 'gallery') {
+    setFormData({
+      src: item.src || '',
+      title: item.title || '',
+      category: item.category || ''
+    });
+  }
+};
 
   const handleCancel = () => {
     setIsEditing(false);
