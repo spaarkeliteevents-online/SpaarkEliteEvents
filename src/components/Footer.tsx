@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, Mail, Phone, MapPin } from 'lucide-react';
+import { Sparkles, Mail, Phone, MapPin, Instagram } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -48,6 +48,12 @@ const Footer = () => {
                 <Phone className="h-5 w-5 text-cyan-500 group-hover:scale-110 transition-transform duration-300" />
                 <a href="tel:+918522967932" className="text-gray-700 hover:text-cyan-600 transition-colors font-medium">
                   +91 85229 67932
+                </a>
+              </div>
+              <div className="flex items-center space-x-3 group">
+                <Instagram className="h-5 w-5 text-cyan-500 group-hover:scale-110 transition-transform duration-300" />
+                <a href="https://www.instagram.com/spaarkelite_events?igsh=MXd0bHF2OGY5dDNmaA==" className="text-gray-700 hover:text-cyan-600 transition-colors font-medium">
+                  @spaarkelite_events
                 </a>
               </div>
               <div className="flex items-center space-x-3 group">

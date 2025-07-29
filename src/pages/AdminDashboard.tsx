@@ -637,7 +637,12 @@ const AdminDashboard = () => {
           <div className="p-4 sm:p-6 flex flex-col h-full min-h-screen lg:min-h-0">
             <div className="flex items-center mb-8">
               <div className="relative">
-                <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 text-cyan-500 mr-2 sm:mr-3 transition-all duration-300 hover:scale-110 hover:rotate-12" />
+                <img
+  src="https://i.postimg.cc/TwMgsHWv/events.jpg"
+  alt="Decorative"
+  className="h-10 w-10 lg:h-20 lg:w-40 transition-all duration-300 hover:scale-110 "
+/>
+                {/* <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 text-cyan-500 mr-2 sm:mr-3 transition-all duration-300 hover:scale-110 hover:rotate-12" /> */}
                 <div className="absolute inset-0 h-8 w-8 bg-cyan-500/20 rounded-full blur-md animate-pulse"></div>
               </div>
               <div>
