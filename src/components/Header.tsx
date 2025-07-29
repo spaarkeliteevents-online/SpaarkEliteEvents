@@ -34,7 +34,12 @@ const Header = () => {
         <div className="flex justify-between items-center py-4 lg:py-6">
           <Link to="/" className="flex items-center space-x-2">
             <div className="relative">
-              <Sparkles className="h-8 w-8 lg:h-10 lg:w-10 text-cyan-500 transition-all duration-300 hover:scale-110 hover:rotate-12" />
+              <img
+  src="https://i.postimg.cc/TwMgsHWv/events.jpg"
+  alt="Decorative"
+  className="h-10 w-10 lg:h-20 lg:w-40 transition-all duration-300 hover:scale-110 "
+/>
+
               <div className="absolute inset-0 h-8 w-8 lg:h-10 lg:w-10 bg-cyan-500/20 rounded-full blur-md animate-pulse"></div>
             </div>
             <div className="text-left">
