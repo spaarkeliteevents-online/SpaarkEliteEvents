@@ -201,15 +201,15 @@ const LandingPage = () => {
                   <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white w-12 sm:w-16 h-12 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-medium">
                     <Users className="h-6 sm:h-8 w-6 sm:w-8" />
                   </div>
-                  <h4 className="text-xl sm:text-2xl font-bold text-cyan-700 mb-2">500+</h4>
-                  <p className="text-gray-600 font-medium text-sm sm:text-base">Happy Clients</p>
+                  <h4 className="text-xl sm:text-2xl font-bold text-cyan-700 mb-2">Experienced</h4>
+                  <p className="text-gray-600 font-large text-sm sm:text-base">Team</p>
                 </div>
                 <div className="text-center modern-card p-4 sm:p-6 hover-lift">
                   <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white w-12 sm:w-16 h-12 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-medium">
                     <Award className="h-6 sm:h-8 w-6 sm:w-8" />
                   </div>
-                  <h4 className="text-xl sm:text-2xl font-bold text-cyan-700 mb-2">50+</h4>
-                  <p className="text-gray-600 font-medium text-sm sm:text-base">Awards Won</p>
+                  <h4 className="text-xl sm:text-2xl font-bold text-cyan-700 mb-2">Qualified</h4>
+                  <p className="text-gray-600 font-large text-sm sm:text-base">Professionals</p>
                 </div>
                 <div className="text-center modern-card p-4 sm:p-6 hover-lift">
                   <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 text-white w-12 sm:w-16 h-12 sm:h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-medium">
@@ -250,48 +250,28 @@ const LandingPage = () => {
                 <p className="body-md text-gray-700 mb-6">
                   Meet the visionary team behind Spaark Elite Events - passionate professionals dedicated to bringing your dreams to life.
                 </p>
-                <div className="rounded-xl bg-gradient-to-br from-slate-50 to-cyan-50 border border-cyan-100 p-4 sm:p-6 md:p-8">
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-    
-    {/* Founder 1 */}
-    <div className="flex flex-col items-center space-y-3">
-      <img 
-        src="https://i.postimg.cc/mzSN6wFt/IMG-4214.jpg" 
-        alt="Founder 1" 
-        className="w-32 h-32 sm:w-48 sm:h-48 object-cover rounded-xl shadow-md"
-      />
-      <span className="text-xs sm:text-sm font-semibold text-gray-700 text-center leading-tight">
-        Thakur Anmol Singh
-      </span>
-    </div>
-
-    {/* Founder 2 */}
-    <div className="flex flex-col items-center space-y-3">
-      <img 
-        src="https://i.postimg.cc/XGWk8hqR/IMG-0087.jpg" 
-        alt="Founder 2" 
-        className="w-32 h-32 sm:w-48 sm:h-48 object-cover rounded-xl shadow-md"
-      />
-      <span className="text-xs sm:text-sm font-semibold text-gray-700 text-center leading-tight">
-        Kalavagunta Naga Lalitha Saraswathi
-      </span>
-    </div>
-
-    {/* Founder 3 */}
-    <div className="flex flex-col items-center space-y-3">
-      <img 
-        src="https://i.postimg.cc/rzpmTyDx/founder3.jpg" 
-        alt="Founder 3" 
-        className="w-32 h-32 sm:w-48 sm:h-48 object-cover rounded-xl shadow-md"
-      />
-      <span className="text-xs sm:text-sm font-semibold text-gray-700 text-center leading-tight">
-        Tallapragada Annapurna
-      </span>
-    </div>
-
-  </div>
-</div>
-
+                  <div className="rounded-xl bg-gradient-to-br from-slate-50 to-cyan-50 border border-cyan-100 p-4 sm:p-6 md:p-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                      <div className="flex flex-col items-center">
+                        <div className="relative w-full aspect-square max-w-32 sm:max-w-48 mx-auto">
+                          <img src="https://i.postimg.cc/mzSN6wFt/IMG-4214.jpg" alt="Founder 1" className="w-auto h-full object-cover rounded-xl shadow-soft hover-scale" />
+                        </div>
+                        <span className="mt-3 text-xs sm:text-sm font-semibold text-gray-700 text-center leading-tight">Thakur Anmol Singh</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="relative w-full aspect-square max-w-32 sm:max-w-48 mx-auto">
+                          <img src="https://i.postimg.cc/XGWk8hqR/IMG-0087.jpg" alt="Founder 2" className="w-auto h-full object-cover rounded-xl shadow-soft hover-scale" />
+                        </div>
+                        <span className="mt-3 text-xs sm:text-sm font-semibold text-gray-700 text-center leading-tight">Kalavagunta Naga Lalitha Saraswathi</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="relative w-full aspect-square max-w-32 sm:max-w-48 mx-auto">
+                          <img src="https://i.postimg.cc/rzpmTyDx/founder3.jpg" alt="Founder 3" className="w-auto h-auto object-cover rounded-xl shadow-soft hover-scale" />
+                        </div>
+                        <span className="mt-3 text-xs sm:text-sm font-semibold text-gray-700 text-center leading-tight">Tallapragada Annapurna</span>
+                      </div>
+                    </div>
+                  </div>
               </div>
             </div>
           </div>
