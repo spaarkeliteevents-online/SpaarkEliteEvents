@@ -603,10 +603,10 @@ const AdminDashboard = () => {
             <h4 className="text-cyan-700 font-semibold mb-2">Account Status</h4>
             <p className="text-green-500">Active</p>
           </div>
-          <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-4 rounded-xl border border-cyan-200">
+          {/* <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-4 rounded-xl border border-cyan-200">
             <h4 className="text-cyan-700 font-semibold mb-2">Last Login</h4>
             <p className="text-gray-500">Today, 2:30 PM</p>
-          </div>
+          </div> */}
         </div>
 
         <div className="mt-8">
