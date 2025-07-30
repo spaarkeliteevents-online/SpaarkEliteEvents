@@ -14,7 +14,7 @@ const GalleryPage = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ["All", "Wedding", "Corporate", "Private", "Venue"];
+  const categories = ["All"];
 
   useEffect(() => {
     const fetchGallery = async () => {
