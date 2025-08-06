@@ -32,6 +32,15 @@ const ServicesPage = () => {
     fetchServices();
   }, []);
 
+  useEffect(() => {
+    // Update page title and meta description
+    document.title = 'Our Services - Luxury Event Planning | Spaark Elite Events Hyderabad';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Discover our comprehensive event planning services in Hyderabad. Wedding planning, corporate events, private parties, and anniversary celebrations with luxury touch.');
+    }
+  }, []);
+
   return (
     <div className="py-20 min-h-screen bg-white" aria-label="Services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal animate-fade-in-up">

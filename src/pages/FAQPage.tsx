@@ -16,6 +16,13 @@ const FAQPage = () => {
   const subscribeFormRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
+    // Update page title
+    document.title = 'FAQ - Event Planning Questions | Spaark Elite Events Hyderabad';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Get answers to frequently asked questions about our event planning services in Hyderabad. Wedding planning, pricing, timeline and service information.');
+    }
+
     const fetchFAQs = async () => {
       try {
         setIsLoading(true);

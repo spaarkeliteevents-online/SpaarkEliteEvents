@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin-dashboard
+Disallow: /admin-login
+Disallow: /supabase-test
+
+Sitemap: https://spaarkeliteevents.com/sitemap.xml
