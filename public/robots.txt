@@ -4,4 +4,4 @@ Disallow: /admin-dashboard
 Disallow: /admin-login
 Disallow: /supabase-test
 
-Sitemap: https://spaarkeliteevents.com/sitemap.xml
+Sitemap: https://www.spaarkeliteevents.in/sitemap.xml
